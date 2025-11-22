@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Roast Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 280px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff2222;
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 Máy Roast Tối Thượng 🔥</h1>
+    <p>Nhập tên để được "tế" một cách văn minh 😎</p>
+
+    <input id="nameInput" type="text" placeholder="Nhập tên...">
+    <br>
+    <button onclick="roast()">Roast tôi!</button>
+
+    <div id="result"></div>
+
+    <script>
+        const roasts = [
+            "{name} ơi, bạn đẹp trai đến mức… camera cũng phải bật chế độ chống chói.",
+            "Nụ cười của {name} sáng như mặt trời… nhưng hơi ồn.",
+            "{name}, bạn không lười đâu, bạn chỉ đang tiết kiệm năng lượng cho tương lai… rất xa.",
+            "{name} ơi, bạn thông minh lắm… theo một chiều hướng rất riêng.",
+            "Nếu sự bối rối là một môn thể thao, {name} chắc chắn là vô địch thế giới.",
+            "{name} à, bạn không hề vô dụng — bạn có thể làm người khác thấy tự tin hơn.",
+            "{name}, bạn giống như phần mềm phiên bản beta… hoạt động được nhưng lỗi hơi nhiều.",
+            "Nhìn {name} tỏa sáng kìa… chắc ai đó quên tắt đèn pin.",
+            "{name}, bạn là minh chứng rằng wifi mạnh không kéo theo IQ mạnh."
+        ];
+
+        function roast() {
+            const name = document.getElementById("nameInput").value.trim();
+            const result = document.getElementById("result");
+
+            if (!name) {
+                result.textContent = "Nhập tên cái đã bạn ơi 😭";
+                return;
+            }
+
+            const random = roasts[Math.floor(Math.random() * roasts.length)];
+            result.textContent = random.replace("{name}", name);
+        }
+    </script>
+
+</body>
+</html>
